@@ -3,6 +3,8 @@
     我的潮购
 @endsection
 @section('content')
+
+    123
     <div class="welcome" style="display: none">
         <p>Hi，等你好久了！</p>
         <a href="" class="orange">登录</a>
