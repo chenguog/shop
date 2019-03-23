@@ -14,10 +14,10 @@
             <ul>
                 <li><img src="images/goods2.jpg" alt=""></li>
                 <li class="name">
-                    <h3>兰兰</h3>
-                    <p>ID：10030053</p>
+                    <h3>{{session('user_name')}}</h3>
+                    <p>ID：{{session('user_id')}}</p>
                 </li>
-                <li class="next fr"><s></s></li>
+                <li class="next fr"><a href="{{url('edituser')}}"><s></s></a></li>
             </ul>
         </div>
         <div class="chao-money">
@@ -44,9 +44,9 @@
     <div class="sub_nav marginB person-page-menu">
         <a href="/v44/member/goodsbuylist.do"><s class="m_s1"></s>潮购记录<i></i></a>
         <a href="/v44/member/orderlist.do"><s class="m_s2"></s>获得的商品<i></i></a>
-        <a href="/v44/member/postlist.do"><s class="m_s3"></s>我的晒单<i></i></a>
+        <a href="{{url('share')}}"><s class="m_s3"></s>我的晒单<i></i></a>
         <a href="/v44/member/mywallet.do"><s class="m_s4"></s>我的钱包<i></i></a>
-        <a href="/v44/member/mywallet.do"><s class="m_s5"></s>收货地址<i></i></a>
+        <a href="{{url('address')}}"><s class="m_s5"></s>收货地址<i></i></a>
         <a href="/v44/help/help.do" class="mt10"><s class="m_s6"></s>帮助与反馈<i></i></a>
         <a href="/v44/help/help.do"><s class="m_s7"></s>二维码分享<i></i></a>
         <p class="colorbbb">客服热线：400-666-2110  (工作时间9:00-17:00)</p>
@@ -54,15 +54,23 @@
 @endsection
 @section('my-js')
     <script>
-        //下导航显示颜色
-        $("#f_personal").addClass('hover');
-        $("#f_personal").parent('li').siblings('li').children('a').removeClass('hover');
-        function goClick(obj, href) {
-            $(obj).empty();
-            location.href = href;
-        }
-        if (navigator.userAgent.toLowerCase().match(/MicroMessenger/i) != "micromessenger") {
-            $(".m-block-header").show();
-        }
+        $(function () {
+            //下导航显示颜色
+            $("#f_personal").addClass('hover');
+            $("#f_personal").parent('li').siblings('li').children('a').removeClass('hover');
+            function goClick(obj, href) {
+                $(obj).empty();
+                location.href = href;
+            }
+            if (navigator.userAgent.toLowerCase().match(/MicroMessenger/i) != "micromessenger") {
+                $(".m-block-header").show();
+            }
+
+            //点击设置
+            $(document).on('click','.set',function () {
+                location.href="{{url('')}}"
+            })
+
+        })
     </script>
 @endsection

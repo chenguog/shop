@@ -32,10 +32,6 @@ class UserController extends Controller
             'user_name'=>$request->txtAccount
         ];
         $data=$usermodel->where($where)->first();
-        //$pwd=$data->user_pwd;
-
-        //$pwd=decrypt($pwd);
-        //dd(decrypt($data->user_pwd));
         if(!empty($data)){
             if(decrypt($data->user_pwd)==$request->txtPassword){
                 // 存储数据到 session...
@@ -131,4 +127,15 @@ class UserController extends Controller
         var_dump(curl_exec($curl));
     }
 
+    public function edituser()
+    {
+        return view('edituser');
+    }
+
+    //退出
+    public function edit()
+    {
+        session(['user_id'=>null]);
+        return redirect('login');
+    }
 }

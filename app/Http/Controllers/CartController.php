@@ -47,22 +47,21 @@ class CartController extends Controller
             echo 3;die;
         }
     }
+
     //删除
     public function cartdel(Request $request)
     {
-        $goods_id=$request->goods_id;
-        //var_dump($goods_id);die;
-        $where=[
-            'goods_id'=>$goods_id,
-            'cart_status'=>1
-        ];
-        $res=DB::table('cart')->where($where)->update(['cart_status'=>2]);
+
+        $cart_id=$request->cart_id;
+        $cart_id=explode('.',$cart_id);
+        $res=DB::table('cart')->whereIn('cart_id',$cart_id)->update(['cart_status'=>2]);
         if($res){
             return 1;
         }else{
             return 2;
         }
     }
+
 
 
 }

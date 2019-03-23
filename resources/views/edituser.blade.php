@@ -31,7 +31,7 @@
                 <li>
                     <a href="">昵称</a>
                     <s class="fr"></s>
-                    <span class="fr">二大爷</span>
+                    <span class="fr">{{session('user_name')}}</span>
                 </li>
                 <li>
                     <a href="">我的主页</a>
@@ -44,17 +44,17 @@
             </ul>     
         </div>
         <div class="quit">
-            <a href="">退出登录</a>
+            <a href="{{url('edit')}}">退出登录</a>
         </div>
     </div>
 
-<div class="footer clearfix" style="display:none;">
+<div class="footer clearfix">
     <ul>
-        <li class="f_home"><a href="/v45/index.do" ><i></i>潮购</a></li>
-        <li class="f_announced"><a href="/v45/lottery/" ><i></i>最新揭晓</a></li>
-        <li class="f_single"><a href="/v45/post/index.do" ><i></i>晒单</a></li>
-        <li class="f_car"><a id="btnCart" href="/v45/mycart/index.do" ><i></i>购物车</a></li>
-        <li class="f_personal"><a href="/v45/member/index.do" ><i></i>我的潮购</a></li>
+        <li class="f_home"><a href="{{url('../')}}"  id="f_home"><i></i>潮购</a></li>
+        <li class="f_announced"><a href="{{url('allshops')}}" id="f_announced"><i></i>所有商品</a></li>
+        <li class="f_single"><a href="{{url('share')}}" ><i></i>晒单</a></li>
+        <li class="f_car"><a id="btnCart" href="{{url('shopcart')}}"><i></i>购物车</a></li>
+        <li class="f_personal"><a href="{{url('userpage')}}"  id="f_personal"><i></i>我的潮购</a></li>
     </ul>
 </div>
 <script src="js/jquery-1.11.2.min.js"></script>

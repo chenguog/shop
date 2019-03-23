@@ -9,9 +9,9 @@
     <meta content="yes" name="apple-mobile-web-app-capable" />
     <meta content="black" name="apple-mobile-web-app-status-bar-style" />
     <meta content="telephone=no" name="format-detection" />
-    <link rel="stylesheet" href="css/sm.css">
-    <link href="css/comm.css" rel="stylesheet" type="text/css" />
-    <link href="css/single.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{url('css/sm.css')}}">
+    <link href="{{url('css/comm.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{url('css/single.css')}}" rel="stylesheet" type="text/css" />
     
 </head>
 <body fnav="1" class="g-acc-bg">
@@ -28,7 +28,7 @@
             <div id="loadingPicBlock" class="wx-show-wrapper">
                 <div class="wx-show-inner">
                     <div id="divPostList" class="marginB">
-                       <!--  <div class="show-list" postid="421452">
+                       <div class="show-list" postid="421452">
                             <div class="show-head">
                                 <a href="/v44/userpage/1010835186" class="show-u blue">厦门市</a>
                                 <span class="show-time">刚刚</span>
@@ -61,8 +61,8 @@
                                             <span class="zan wx-new-icon"></span><em>0</em>
                                         </a>
                                     </li>
-                                    
-                                    
+
+
                                 </ul>
                             </div>
                         </div>
@@ -102,8 +102,8 @@
                                             <span class="zan wx-new-icon"></span><em>0</em>
                                         </a>
                                     </li>
-                                    
-                                    
+
+
                                 </ul>
                             </div>
                         </div>
@@ -140,8 +140,8 @@
                                             <span class="zan wx-new-icon"></span><em>0</em>
                                         </a>
                                     </li>
-                                    
-                                    
+
+
                                 </ul>
                             </div>
                         </div>
@@ -181,11 +181,11 @@
                                             <span class="zan wx-new-icon"></span><em>0</em>
                                         </a>
                                     </li>
-                                    
-                                    
+
+
                                 </ul>
                             </div>
-                        </div>  -->
+                        </div>
                     </div>
                     <!-- 无内容时显示 -->
                     <div class="noRecords colorbbb shownocontent" style="display: none">
@@ -196,19 +196,19 @@
             </div>
             <div class="footer clearfix">
                 <ul>
-                    <li class="f_home"><a href="/v41/index.do" ><i></i>潮购</a></li>
-                    <li class="f_announced"><a href="/v41/lottery/" ><i></i>所有商品</a></li>
-                    <li class="f_single"><a href="/v41/post/index.do" class="hover"><i></i>最新揭晓</a></li>
-                    <li class="f_car"><a id="btnCart" href="/v41/mycart/index.do" ><i></i>购物车</a></li>
-                    <li class="f_personal"><a href="/v41/member/index.do" ><i></i>我的潮购</a></li>
+                    <li class="f_home"><a href="{{url('../')}}" class="hover" id="f_home"><i></i>潮购</a></li>
+                    <li class="f_announced"><a href="{{url('allshops')}}" id="f_announced"><i></i>所有商品</a></li>
+                    <li class="f_single"><a href="{{url('share')}}" ><i></i>晒单</a></li>
+                    <li class="f_car"><a id="btnCart" href="{{url('shopcart')}}"><i></i>购物车</a></li>
+                    <li class="f_personal"><a href="{{url('userpage')}}"  id="f_personal"><i></i>我的潮购</a></li>
                 </ul>
             </div>
         </div>
     </div>
-<script src="js/timeago.min.js"></script>
-<script src="js/zepto.js" charset="utf-8"></script>
-<script src="js/sm.js"></script>
-<script src="js/share.js"></script>
+<script src="{{url('js/timeago.min.js')}}"></script>
+<script src="{{url('js/zepto.js')}}" charset="utf-8"></script>
+<script src="{{url('js/sm.js')}}"></script>
+<script src="{{url('js/share.js')}}"></script>
 <script>
     if($('#divPostList').children().length==0){
         $('.noRecords').css('display','block');

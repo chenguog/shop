@@ -15,27 +15,26 @@
         <div class="g-Cart-list">
             <ul id="cartBody">
                 @foreach($res as $v)
-                <li>
-                    <s class="xuan current"></s>
-                    <a class="fl u-Cart-img" href="/v44/product/12501977.do">
-                        <img src="{{url('images/goodsLogo/'.$v->goods_img)}}" border="0" alt="">
-                    </a>
-                    <div class="u-Cart-r">
-                        <a href="/v44/product/12501977.do" class="gray6">{{$v->goods_name}}</a>
-                        <span class="gray9">
-                            <em>剩余{{$v->goods_num}}件库存</em>
-                        </span>
-                        <div class="num-opt">
-                            <em class="num-mius dis min"><i></i></em>
-                            <input class="text_box" name="num" maxlength="6" type="text" value="1" codeid="12501977">
-                            <em class="num-add add"><i></i></em>
-                        </div>
-                        <a href="javascript:;" name="delLink" cid="12501977" isover="0" class="z-del">
-                            <s id="del" goods_id="{{$v->goods_id}}"></s>
+                    <li>
+                        <s class="xuan current" ></s>
+                        <a class="fl u-Cart-img" href="#，">
+                            <img src="{{url('images/goodsLogo/'.$v->goods_img)}}" border="0" alt="">
                         </a>
-                    </div>    
-                </li>
-               @endforeach
+                        <div class="u-Cart-r" cart_id="{{$v->cart_id}}">
+                            <a href="{{url('shopcontent')}}/{{$v->goods_id}}" class="gray6">{{$v->goods_name}}</a>
+                            <span class="gray9">
+                                <em>剩余{{$v->goods_num}}件</em>
+                                <em class="self">单价<a class="self_price" self_price="{{$v->self_price}}">{{$v->self_price}}</a>元</em>
+                            </span>
+                            <div class="num-opt">
+                                <em class="num-mius dis min"><i></i></em>
+                                <input class="text_box" name="num" maxlength="6" type="text" value="{{$v->buy_number}}" codeid="12501977">
+                                <em class="num-add add"><i></i></em>
+                            </div>
+                            <a href="javascript:;" name="delLink" cid="12501977" isover="0" class="z-del"><s></s></a>
+                        </div>
+                    </li>
+                @endforeach
             </ul>
             <div id="divNone" class="empty "  style="display: none"><s></s><p>您的购物车还是空的哦~</p><a href="https://m.1yyg.com" class="orangeBtn">立即潮购</a></div>
         </div>
@@ -43,7 +42,7 @@
             <dl>
                 <dt class="gray6">
                     <s class="quanxuan current"></s>全选
-                    <p class="money-total">合计<em class="orange total"><span>￥</span>17.00</em></p>
+                    <p class="money-total">合计<em class="orange total"><span>￥</span></em></p>
                     
                 </dt>
                 <dd>
@@ -87,25 +86,52 @@
 {{--<!---商品加减算总数---->--}}
 @section('my-js')
     <script>
-
         //删除
-        $(document).on('click','#del',function () {
-           var  goods_id=$(this).attr('goods_id');
-           var _token=$('#_token').val();
-           //console.log(goods_id);
-           $.post(
-               "{{url('cartdel')}}",
-               {goods_id:goods_id,_token:_token},
-               function (res) {
-                   //console.log(res);
-                  if(res==1){
-                       alert('删除成功');
-                   }else{
-                       alert('删除失败');
-                   }
-               }
-           )
-        });
+        $(document).on('click',".z-del",function () {
+            var cart_id=$(this).parents().attr('cart_id');
+            //console.log(cart_id);
+            var _token=$("#_token").val();
+            $.post(
+                '{{url('cartdel')}}',
+                {cart_id:cart_id,_token:_token},
+                function (res){
+                    console.log(res)
+                    if(res==1){
+                        alert('删除成功');
+                        history.go(0)
+                    }else if(res==2){
+                        alert('删除失败');
+                    }
+                }
+            )
+        })
+        $('.remove').click(function () {
+            var cart_id='';
+            $(".xuan").each(function () {
+                if($(this).attr('class')=='xuan current'){
+                    cart_id+=$(this).siblings("div[class='u-Cart-r']").attr('cart_id')+'.';
+                }
+            });
+            if(cart_id==''){
+                alert('请至少选择一个商品');
+                location.href="shopcart"
+            }
+            cart_id=cart_id.substr(0,cart_id.length-1);
+            var _token=$("#_token").val();
+            $.post(
+                '{{url('cartdel')}}',
+                {cart_id:cart_id,_token:_token},
+                function (res){
+                    if(res==1){
+                        alert('删除成功');
+                        location.href="{{url('shopcart')}}"
+                    }else if(res==2){
+                        alert('删除失败');
+                    }
+                }
+            )
+        })
+
         //下导航显示颜色
         $("#btnCart").addClass('hover');
         $("#btnCart").parent('li').siblings('li').children('a').removeClass('hover');
@@ -185,6 +211,19 @@
          $(".total").html('<span>￥</span>'+(conts).toFixed(2));
     }
     GetCount();
+
+        function GetCount() {
+            var conts = 0;
+            var aa = 0;
+            $(".xuan").each(function () {
+                if($(this).attr('class')=='xuan current'){
+                    var self_price=$(this).siblings("div[class='u-Cart-r']").find("a[class='self_price']").attr('self_price');
+                    var buy_number=$(this).siblings("div[class='u-Cart-r']").find("input[class='text_box']").val();
+                    conts+=parseInt(self_price)*parseInt(buy_number);
+                }
+            });
+            $(".total").html('<span>￥</span>'+(conts).toFixed(2));
+        }
 </script>
     </div>
 @endsection

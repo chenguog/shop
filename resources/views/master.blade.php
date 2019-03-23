@@ -31,7 +31,7 @@
     <ul>
         <li class="f_home"><a href="{{url('../')}}" class="hover" id="f_home"><i></i>潮购</a></li>
         <li class="f_announced"><a href="{{url('allshops')}}" id="f_announced"><i></i>所有商品</a></li>
-        <li class="f_single"><a href="javacsript:;" ><i></i>晒单</a></li>
+        <li class="f_single"><a href="{{url('share')}}" ><i></i>晒单</a></li>
         <li class="f_car"><a id="btnCart" href="{{url('shopcart')}}"><i></i>购物车</a></li>
         <li class="f_personal"><a href="{{url('userpage')}}"  id="f_personal"><i></i>我的潮购</a></li>
     </ul>

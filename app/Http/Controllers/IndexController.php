@@ -78,4 +78,12 @@ class IndexController extends Controller
         $goods['goods_imgs']=explode('|',$goods['goods_imgs']);
         return view('shopcontent',['goods'=>$goods]);
     }
+
+    /**
+     * @content 晒单
+     */
+    public function share()
+    {
+        return view('share');
+    }
 }

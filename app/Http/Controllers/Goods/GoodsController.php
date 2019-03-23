@@ -75,6 +75,4 @@ class GoodsController extends Controller
         }
         return view('div',['data'=>$data]);
     }
-
-
 }

@@ -19,6 +19,7 @@ Route::prefix('/')->group(function(){
     route::any('shopcart','IndexController@shopcart')->middleware('logs');
     route::any('allshops','IndexController@allshops');
     route::any('shopcontent/{id?}','IndexController@shopcontent');
+    route::any('share','IndexController@share');
 });
 //路由组login
 Route::prefix('/')->group(function(){
@@ -28,6 +29,8 @@ Route::prefix('/')->group(function(){
     route::any('regauth','User\UserController@regauth');
     route::post('loginDo','User\UserController@loginDo');
     route::post('code','User\UserController@code');
+    route::any('edituser','User\UserController@edituser');
+    route::any('edit','User\UserController@edit');
 });
 //路由组goods
 Route::prefix('/')->group(function(){
@@ -41,4 +44,8 @@ Route::prefix('/')->group(function(){
 Route::prefix('/')->group(function(){
     route::post('cartadd','CartController@cartadd')->middleware('logs');
     route::post('cartdel','CartController@cartdel');
+});
+Route::prefix('/')->group(function(){
+    route::any('address','AddressController@address');
+    route::any('writeaddr','AddressController@writeaddr');
 });
