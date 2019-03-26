@@ -47,7 +47,7 @@
                 </dt>
                 <dd>
                     <a href="javascript:;" id="a_payment" class="orangeBtn w_account remove">删除</a>
-                    <a href="{{url('payment')}}" id="a_payment" class="orangeBtn w_account">去结算</a>
+                    <a href="#" id="a_payment" class="orangeBtn w_account order">去结算</a>
                 </dd>
             </dl>
         </div>
@@ -224,6 +224,30 @@
             });
             $(".total").html('<span>￥</span>'+(conts).toFixed(2));
         }
+
+        $('.order').click(function () {
+            var cart_id='';
+            $('.xuan').each(function () {
+                if($(this).attr('class')=='xuan current'){
+                    cart_id+=$(this).siblings("div[class='u-Cart-r']").attr('cart_id')+'.'
+                }
+            })
+            cart_id=cart_id.substr(0,cart_id.length-1);
+            var _token=$("#_token").val();
+            if(cart_id==''){
+                alert('请至少选择一个商品');
+                location.href="shopcart"
+            }
+            $.post(
+                '{{url('pay')}}',
+                {cart_id:cart_id,_token:_token},
+                function (res) {
+                    console.log(res);
+                    location.href="{{url('payment')}}"+'/'+res;
+                }
+            )
+            //console.log(cart_id)
+        })
 </script>
     </div>
 @endsection

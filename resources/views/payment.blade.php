@@ -23,51 +23,26 @@
 <div>
         <div class="g-pay-lst">
             <ul>
+                @foreach($goodsInfo as $v)
                 <li>
                     <a href="">
                         <span>
-                            <img src="https://img.1yyg.net/GoodsPic/pic-200-200/20160908092215288.jpg" border="0" alt="">
+                            <img src="{{url('images/goodsLogo/'.$v->goods_img)}}" border="0" alt="">
                         </span>
                         <dl>
                             <dt>
-                                    (第449560潮)苹果（Apple）iPhone 7 Plus 128G版 4G手机
+                                {{$v->goods_name}}
                             </dt>
-                            <dd><em class="price">1</em>人次/<em>￥1.00</em></dd>
+                            <dd><em class="price">{{$v->buy_number}}</em>件<em>￥{{$v->self_price*$v->buy_number}}</em></dd>
                         </dl>
                     </a>
                 </li>
-                <li>
-                    <a href="">
-                        <span>
-                            <img src="https://img.1yyg.net/GoodsPic/pic-200-200/20160908092215288.jpg" border="0" alt="">
-                        </span>
-                        <dl>
-                            <dt>
-                                    (第449560潮)苹果（Apple）iPhone 7 Plus 128G版 4G手机
-                            </dt>
-                            <dd><em class="price">1</em>人次/<em>￥1.00</em></dd>
-                        </dl>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <span>
-                            <img src="https://img.1yyg.net/GoodsPic/pic-200-200/20160908092215288.jpg" border="0" alt="">
-                        </span>
-                        <dl>
-                            <dt>
-                                
-                                    (第449560潮)苹果（Apple）iPhone 7 Plus 128G版 4G手机
-                            </dt>
-                            <dd><em class="price">1</em>人次/<em>￥1.00</em></dd>
-                        </dl>
-                    </a>
-                </li>
+                @endforeach
             </ul>
             <div id="divMore">
                 
             </div>
-            <p class="gray9">总需支付金额：<em class="orange"><i>￥</i>1.00</em></p>
+            <p class="gray9">总需支付金额：<em class="orange"><i>￥</i>{{$buy_number}}</em></p>
         </div>
 
         <div class="other_pay marginB">

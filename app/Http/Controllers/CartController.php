@@ -61,9 +61,30 @@ class CartController extends Controller
             return 2;
         }
     }
-    public function payment(){
-        return view('payment');
+    public function pay(Request $request){
+        $cart_id=$request->cart_id;
+        echo $cart_id;
     }
+
+    public function payment($cart_id)
+    {
+        $cart_id=explode('.',$cart_id);
+        $res=DB::table('cart')->whereIn('cart_id',$cart_id)->get();
+        $goods_id=[];
+        foreach ($res as $k=>$v){
+            $goods_id[]=$v->goods_id;
+        }
+        $goodsInfo=DB::table('cart')
+            ->join('goods','cart.goods_id','=','goods.goods_id')
+            ->whereIn('cart_id',$cart_id)
+            ->get();
+        $buy_number=0;
+        foreach ($goodsInfo as $k=>$v){
+            $buy_number+=$v->self_price*$v->buy_number;
+        }
+        return view('payment',['goodsInfo'=>$goodsInfo,'buy_number'=>$buy_number]);
+    }
+
 
 
 }

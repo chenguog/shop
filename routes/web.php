@@ -55,8 +55,8 @@ Route::prefix('/')->group(function(){
 Route::prefix('/')->group(function(){
     route::post('cartadd','CartController@cartadd')->middleware('logs');
     route::post('cartdel','CartController@cartdel');
-    route::any('payment','CartController@payment');
-
+    route::any('payment/{id?}','CartController@payment');
+    route::any('pay','CartController@pay');
 });
 Route::prefix('/')->group(function(){
     route::any('address','AddressController@address');
