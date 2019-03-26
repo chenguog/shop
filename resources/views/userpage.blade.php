@@ -3,8 +3,6 @@
     我的潮购
 @endsection
 @section('content')
-
-    123
     <div class="welcome" style="display: none">
         <p>Hi，等你好久了！</p>
         <a href="" class="orange">登录</a>
@@ -19,24 +17,24 @@
                     <h3>{{session('user_name')}}</h3>
                     <p>ID：{{session('user_id')}}</p>
                 </li>
-                <li class="next fr"><a href="{{url('edituser')}}"><s></s></a></li>
+                <li class="next fr"><a href="#"><s></s></a></li>
             </ul>
         </div>
-        <div class="chao-money">
-            <ul class="clearfix">
-                <li class="br">
-                    <p>潮购值</p>
-                    <span>822</span>
-                </li>
-                <li class="br">
-                    <p>余额（元）</p>
-                    <span>0</span>
-                </li>
-                <li>
-                    <a href="" class="recharge">去充值</a>
-                </li>
-            </ul>
-        </div>
+        {{--<div class="chao-money">--}}
+            {{--<ul class="clearfix">--}}
+                {{--<li class="br">--}}
+                    {{--<p>潮购值</p>--}}
+                    {{--<span>822</span>--}}
+                {{--</li>--}}
+                {{--<li class="br">--}}
+                    {{--<p>余额（元）</p>--}}
+                    {{--<span>0</span>--}}
+                {{--</li>--}}
+                {{--<li>--}}
+                    {{--<a href="" class="recharge">去充值</a>--}}
+                {{--</li>--}}
+            {{--</ul>--}}
+        {{--</div>--}}
 
     </div>
     <!--获得的商品-->
@@ -44,10 +42,10 @@
     <!--导航菜单-->
     
     <div class="sub_nav marginB person-page-menu">
-        <a href="/v44/member/goodsbuylist.do"><s class="m_s1"></s>潮购记录<i></i></a>
+        <a href="{{url('buyrecord')}}"><s class="m_s1"></s>潮购记录<i></i></a>
         <a href="/v44/member/orderlist.do"><s class="m_s2"></s>获得的商品<i></i></a>
-        <a href="{{url('share')}}"><s class="m_s3"></s>我的晒单<i></i></a>
-        <a href="/v44/member/mywallet.do"><s class="m_s4"></s>我的钱包<i></i></a>
+        <a href="{{url('willshare')}}"><s class="m_s3"></s>我的晒单<i></i></a>
+        <a href="{{url('mywallet')}}"><s class="m_s4"></s>我的钱包<i></i></a>
         <a href="{{url('address')}}"><s class="m_s5"></s>收货地址<i></i></a>
         <a href="/v44/help/help.do" class="mt10"><s class="m_s6"></s>帮助与反馈<i></i></a>
         <a href="/v44/help/help.do"><s class="m_s7"></s>二维码分享<i></i></a>
@@ -70,7 +68,7 @@
 
             //点击设置
             $(document).on('click','.set',function () {
-                location.href="{{url('')}}"
+                location.href="{{url('set')}}"
             })
 
         })

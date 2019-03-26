@@ -7,10 +7,10 @@
 <meta content="yes" name="apple-mobile-web-app-capable" />
 <meta content="black" name="apple-mobile-web-app-status-bar-style" />
 <meta content="telephone=no" name="format-detection" />
-<link href="css/comm.css" rel="stylesheet" type="text/css" />
-<link href="css/login.css" rel="stylesheet" type="text/css" />
-<link href="css/findpwd.css" rel="stylesheet" type="text/css" />
-<script src="js/jquery-1.11.2.min.js"></script>
+<link href="{{url('css/comm.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{url('css/login.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{url('css/findpwd.css')}}" rel="stylesheet" type="text/css" />
+<script src="{{url('js/jquery-1.11.2.min.js')}}"></script>
 </head>
 <body>
     
@@ -36,19 +36,15 @@
 
 </div>
 
-<script src="layui/layui.js"></script> 
+<script src="{{url('layui/layui.js')}}"></script>
 <script>
     layui.use(['layer', 'laypage', 'element'], function(){
-  var layer = layui.layer
-  ,laypage = layui.laypage
-  ,element = layui.element(); 
- })
+        var layer = layui.layer
+        ,laypage = layui.laypage
+        ,element = layui.element();
+    })
 </script>
 <script>
-     
-
-
-
     function resetpwd(){
         // 密码失去焦点
         $('#verifcode').blur(function(){
@@ -63,8 +59,6 @@
 
     }
     resetpwd();
-    
-    
 
     $('.registerCon input').bind('keydown',function(){
         var that = $(this);

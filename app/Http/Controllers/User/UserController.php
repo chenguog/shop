@@ -138,4 +138,54 @@ class UserController extends Controller
         session(['user_id'=>null]);
         return redirect('login');
     }
+    //潮购记录
+    public function buyrecord()
+    {
+        return view('buyrecord');
+    }
+
+    public function mywallet()
+    {
+        return view('mywallet');
+    }
+
+    public function sharedetail()
+    {
+        return view('sharedetail');
+    }
+
+    public function willshare()
+    {
+        return view('willshare');
+    }
+
+    public function set()
+    {
+        return view('set');
+    }
+
+    public function invite()
+    {
+        return view('invite');
+    }
+
+    public function safeset()
+    {
+        return view('safeset');
+    }
+
+    public function resetpassword()
+    {
+        return view('resetpassword');
+    }
+
+    public function loginpwd()
+    {
+        return view('mody-loginpwd');
+    }
+
+    public function rename()
+    {
+        return view('nicknamemodify');
+    }
 }

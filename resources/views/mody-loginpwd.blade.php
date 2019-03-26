@@ -7,12 +7,12 @@
 <meta content="yes" name="apple-mobile-web-app-capable" />
 <meta content="black" name="apple-mobile-web-app-status-bar-style" />
 <meta content="telephone=no" name="format-detection" />
-<link href="css/comm.css" rel="stylesheet" type="text/css" />
-<link href="css/login.css" rel="stylesheet" type="text/css" />
-<link href="css/findpwd.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="layui/css/layui.css">
-<link rel="stylesheet" href="css/modipwd.css">
-<script src="js/jquery-1.11.2.min.js"></script>
+<link href="{{url('css/comm.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{url('css/login.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{url('css/findpwd.css')}}" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="{{url('layui/css/layui.css')}}">
+<link rel="stylesheet" href="{{url('css/modipwd.css')}}">
+<script src="{{url('js/jquery-1.11.2.min.js')}}"></script>
 </head>
 <body>
     
@@ -29,7 +29,7 @@
         <form class="layui-form" action="">
             <div class="registerCon regwrapp">
                 <div class="account">
-                    <em>账户名：</em> <i>155****3866</i>
+                    <em>账户名：</em> <i>{{session('user_name')}}</i>
                 </div>
                 <div><em>当前密码</em><input type="password"></div>
                 <div><em>新密码</em><input type="password" placeholder="请输入6-16位数字、字母组成的新密码"></div>
@@ -40,7 +40,7 @@
     </div>
 
 
-<script src="layui/layui.js"></script>
+<script src="{{url('layui/layui.js')}}"></script>
 <script>
 //Demo
 layui.use('form', function(){

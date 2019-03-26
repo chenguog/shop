@@ -99,7 +99,7 @@
                                                     <li class="P-bar03"><em>{{$v->goods_num}}</em>剩余</li>
                                                 </ul>
                                             </div>
-                                            <a codeid="12785750" goods_id="{{$v->goods_id}}" class="cartadd" canbuy="646"><s></s></a>
+                                            <a codeid="12785750" goods_id="{{$v->goods_id}}" class="cartadd" canbuy="646"><s ></s></a>
                                         </div>
                                     </div>
                                 </li>

@@ -23,42 +23,29 @@
 </div>
 <div class="addr-wrapp">
     <div class="addr-list">
+        <input type="hidden" id="_token" value="{{csrf_token()}}">
+        @foreach($res as $v)
          <ul>
             <li class="clearfix">
-                <span class="fl">兰兰</span>
-                <span class="fr">15034008459</span>
+                <span class="fl">{{$v->address_name}}</span>
+                <span class="fr">{{$v->address_tel}}</span>
             </li>
             <li>
-                <p>北京市东城区起来我来了</p>
+                <p>{{$v->area}}{{$v->address_desc}}</p>
             </li>
             <li class="a-set">
-                <s class="z-set" style="margin-top: 6px;"></s>
+                @if($v->is_default==true)
+                    <s class="z-set" style="margin-top: 6px;"></s>
+                @else
+                    <s class="z-defalt" style="margin-top: 6px;" ></s>
+                @endif
+
                 <span>设为默认</span>
-                <div class="fr">
-                    <span class="edit">编辑</span>
-                    <span class="remove">删除</span>
-                </div>
+                <a href="{{url('edit')}}/{{$v->address_id}}"><span class="edit">编辑</span></a>
+                    <span class="remove del">删除</span>
             </li>
-        </ul>  
-    </div>
-    <div class="addr-list">
-         <ul>
-            <li class="clearfix">
-                <span class="fl">兰兰</span>
-                <span class="fr">15034008459</span>
-            </li>
-            <li>
-                <p>北京市东城区起来我来了</p>
-            </li>
-            <li class="a-set">
-                <s class="z-defalt" style="margin-top: 6px;"></s>
-                <span>设为默认</span>
-                <div class="fr">
-                    <span class="edit">编辑</span>
-                    <span class="remove">删除</span>
-                </div>
-            </li>
-        </ul>  
+        </ul>
+            @endforeach
     </div>
    
 </div>
@@ -70,26 +57,26 @@
 <!-- 单选 -->
 <script>
      // 删除地址
-    $(document).on('click','span.remove', function () {
-        var buttons1 = [
-            {
-              text: '删除',
-              bold: true,
-              color: 'danger',
-              onClick: function() {
-                $.alert("您确定删除吗？");
-              }
-            }
-          ];
-          var buttons2 = [
-            {
-              text: '取消',
-              bg: 'danger'
-            }
-          ];
-          var groups = [buttons1, buttons2];
-          $.actions(groups);
-    });
+    // $(document).on('click','span.remove', function () {
+    //     var buttons1 = [
+    //         {
+    //           text: '删除',
+    //           bold: true,
+    //           color: 'danger',
+    //           onClick: function() {
+    //             $.alert("您确定删除吗？");
+    //           }
+    //         }
+    //       ];
+    //       var buttons2 = [
+    //         {
+    //           text: '取消',
+    //           bg: 'danger'
+    //         }
+    //       ];
+    //       var groups = [buttons1, buttons2];
+    //       $.actions(groups);
+    // });
 </script>
 <script src="{{url('js/jquery-1.8.3.min.js')}}"></script>
 <script>
@@ -115,6 +102,25 @@
         )
 
     });
+
+    $(document).on('click','.del',function () {
+        var address_id=$(this).parent('.fr').attr('address_id');
+        var _token=$('#_token').val();
+        $.post(
+            "{{url('del')}}",
+            {address_id:address_id,_token:_token},
+            function (res) {
+                //console.log(res);
+                if(res==1){
+                    alert('删除成功');
+                }else{
+                    alert('删除失败');
+                }
+                history.go(0);
+            }
+        )
+    })
+
     
 </script>
 

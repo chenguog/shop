@@ -29,7 +29,7 @@
                     <span class="img fr"></span>
                 </li>
                 <li>
-                    <a href="">昵称</a>
+                    <a href="{{url('rename')}}">昵称</a>
                     <s class="fr"></s>
                     <span class="fr">{{session('user_name')}}</span>
                 </li>

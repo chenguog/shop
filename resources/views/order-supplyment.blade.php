@@ -29,7 +29,7 @@
             <li class="position"><s></s></li>
             <li class="info">
                 <div class="clearfix">
-                    <span class="user fl">收货人：</span>
+                    <span class="user fl" >收货人：</span>
                     <span class="tel fr"></span>
                 </div>
                 <p class="noaddr">地址信息尚不完善，点击完善哦！</p>

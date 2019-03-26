@@ -61,7 +61,9 @@ class CartController extends Controller
             return 2;
         }
     }
-
+    public function payment(){
+        return view('payment');
+    }
 
 
 }

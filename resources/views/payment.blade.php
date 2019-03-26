@@ -8,9 +8,9 @@
     <meta content="yes" name="apple-mobile-web-app-capable" />
     <meta content="black" name="apple-mobile-web-app-status-bar-style" />
     <meta content="telephone=no" name="format-detection" />
-    <link href="css/comm.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="css/cartlist.css">
-    <link rel="stylesheet" href="layui/css/layui.css">
+    <link href="{{url('css/comm.css')}}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{url('css/cartlist.css')}}">
+    <link rel="stylesheet" href="{{url('layui/css/layui.css')}}">
 </head>
 <body>
     
@@ -30,7 +30,6 @@
                         </span>
                         <dl>
                             <dt>
-                                
                                     (第449560潮)苹果（Apple）iPhone 7 Plus 128G版 4G手机
                             </dt>
                             <dd><em class="price">1</em>人次/<em>￥1.00</em></dd>
@@ -44,7 +43,6 @@
                         </span>
                         <dl>
                             <dt>
-                                
                                     (第449560潮)苹果（Apple）iPhone 7 Plus 128G版 4G手机
                             </dt>
                             <dd><em class="price">1</em>人次/<em>￥1.00</em></dd>
@@ -96,7 +94,7 @@
             <div class="paylip">我们提倡理性消费</div>
         </div>
         <div class="g-Total-bt">
-            <dd><a id="btnPay" href="javascript:;" class="orangeBtn fr w_account">立即支付</a></dd>
+            <dd><a id="btnPay" href="{{url('ordersupply')}}" class="orangeBtn fr w_account">立即支付</a></dd>
         </div> 
 
 
@@ -129,9 +127,9 @@
         </div>
             
 
-<script src="js/jquery-1.11.2.min.js"></script>
-<script src="js/all.js"></script>
-<script src="layui/layui.js"></script>
+<script src="{{url('js/jquery-1.11.2.min.js')}}"></script>
+<script src="{{url('js/all.js')}}"></script>
+<script src="{{url('layui/layui.js')}}"></script>
 
 
 <script>
@@ -257,5 +255,6 @@
     })
         
 </script>
+</div>
 </body>
 </html>

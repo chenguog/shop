@@ -47,41 +47,41 @@
                 </dt>
                 <dd>
                     <a href="javascript:;" id="a_payment" class="orangeBtn w_account remove">删除</a>
-                    <a href="javascript:;" id="a_payment" class="orangeBtn w_account">去结算</a>
+                    <a href="{{url('payment')}}" id="a_payment" class="orangeBtn w_account">去结算</a>
                 </dd>
             </dl>
         </div>
-        <div class="hot-recom">
-            <div class="title thin-bor-top gray6">
-                <span><b class="z-set"></b>人气推荐</span>
-                <em></em>
-            </div>
-            <div class="goods-wrap thin-bor-top">
-                <ul class="goods-list clearfix">
-                    <li>
-                        <a href="https://m.1yyg.com/v44/products/23458.do" class="g-pic">
-                            <img src="" width="136" height="136">
-                        </a>
-                        <p class="g-name">
-                            <a href="">(第<i>368671</i>潮)苹果（Apple）iPhone 7 Plus 128G版 4G手机</a>
-                        </p>
-                        <ins class="gray9">价值:￥7130</ins>
-                        <div class="btn-wrap">
-                            <div class="Progress-bar">
-                                <p class="u-progress">
-                                    <span class="pgbar" style="width:1%;">
-                                        <span class="pging"></span>
-                                    </span>
-                                </p>
-                            </div>
-                            <div class="gRate" data-productid="23458">
-                                <a href="javascript:;"><s></s></a>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        {{--<div class="hot-recom">--}}
+            {{--<div class="title thin-bor-top gray6">--}}
+                {{--<span><b class="z-set"></b>人气推荐</span>--}}
+                {{--<em></em>--}}
+            {{--</div>--}}
+            {{--<div class="goods-wrap thin-bor-top">--}}
+                {{--<ul class="goods-list clearfix">--}}
+                    {{--<li>--}}
+                        {{--<a href="https://m.1yyg.com/v44/products/23458.do" class="g-pic">--}}
+                            {{--<img src="" width="136" height="136">--}}
+                        {{--</a>--}}
+                        {{--<p class="g-name">--}}
+                            {{--<a href="">(第<i>368671</i>潮)苹果（Apple）iPhone 7 Plus 128G版 4G手机</a>--}}
+                        {{--</p>--}}
+                        {{--<ins class="gray9">价值:￥7130</ins>--}}
+                        {{--<div class="btn-wrap">--}}
+                            {{--<div class="Progress-bar">--}}
+                                {{--<p class="u-progress">--}}
+                                    {{--<span class="pgbar" style="width:1%;">--}}
+                                        {{--<span class="pging"></span>--}}
+                                    {{--</span>--}}
+                                {{--</p>--}}
+                            {{--</div>--}}
+                            {{--<div class="gRate" data-productid="23458">--}}
+                                {{--<a href="javascript:;"><s></s></a>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</li>--}}
+                {{--</ul>--}}
+            {{--</div>--}}
+        {{--</div>--}}
 @endsection
 {{--<!---商品加减算总数---->--}}
 @section('my-js')
