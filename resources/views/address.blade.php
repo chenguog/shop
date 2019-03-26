@@ -42,7 +42,7 @@
 
                 <span>设为默认</span>
                 <a href="{{url('edit')}}/{{$v->address_id}}"><span class="edit">编辑</span></a>
-                    <span class="remove del">删除</span>
+                    <span class="remove del" address_id={{$v->address_id}}>删除</span>
             </li>
         </ul>
             @endforeach
@@ -104,7 +104,8 @@
     });
 
     $(document).on('click','.del',function () {
-        var address_id=$(this).parent('.fr').attr('address_id');
+        var address_id=$(this).attr('address_id');
+        console.log(address_id);
         var _token=$('#_token').val();
         $.post(
             "{{url('del')}}",
