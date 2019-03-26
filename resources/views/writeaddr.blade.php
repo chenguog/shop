@@ -33,7 +33,9 @@
             <li><em>所在区域</em><input id="demo1" type="text"  name="area" placeholder="请选择所在区域"></li>
             <li class="addr-detail"><em>详细地址</em><input type="text" placeholder="20个字以内" name="address_desc" id="address_desc" class="addr"></li>
         </ul>
-        <div class="setnormal"><span>设为默认地址</span><input type="checkbox" id="is_default" name="xxx" lay-skin="switch">  </div>
+        <div class="setnormal"><span>设为默认地址</span>
+            <input type="checkbox" id="is_default" name="xxx" lay-skin="switch">
+        </div>
     </div>
     <input type="hidden" id="_token" value="{{csrf_token()}}">
 </form>
@@ -58,16 +60,21 @@ layui.use('form', function(){
         var address_desc=$("#address_desc").val();
         var is_default=$("#is_default").prop('checked');
         var _token=$("#_token").val();
+        if(is_default==true){
+            is_default=1
+        }else if (is_default==false) {
+            is_default=2
+        }
         $.post(
             '{{url('addressadd')}}',
             {_token:_token,address_name:address_name,address_tel:address_tel,area:area,address_desc:address_desc,is_default:is_default},
             function (res) {
                  console.log(res)
-                if(res==1){
-                    layer.msg('添加成功');
+                if(res=='添加成功'){
+                    layer.msg('添加成功',{icon:1});
                     location.href="{{url('address')}}";
                 }else{
-                    layer.msg('添加失败');
+                    layer.msg(res,{icon:2});
                 }
             }
         )

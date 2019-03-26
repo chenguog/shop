@@ -11,7 +11,6 @@
     <link href="{{url('css/comm.css')}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{{url('css/address.css')}}">
     <link rel="stylesheet" href="{{url('css/sm.css')}}">
-
 </head>
 <body>
     
@@ -34,20 +33,21 @@
                 <p>{{$v->area}}{{$v->address_desc}}</p>
             </li>
             <li class="a-set">
-                @if($v->is_default==true)
+                @if($v->is_default==1)
                     <s class="z-set" style="margin-top: 6px;"></s>
                 @else
                     <s class="z-defalt" style="margin-top: 6px;" ></s>
                 @endif
 
-                <span>设为默认</span>
-                <a href="{{url('edit')}}/{{$v->address_id}}"><span class="edit">编辑</span></a>
+                <span class="moren">设为默认</span>
+                    <div class="fr" address_id="{{$v->address_id}}">
+                <a href="{{url('editaddress')}}/{{$v->address_id}}"><span class="edit">编辑</span></a>
                     <span class="remove del" address_id={{$v->address_id}}>删除</span>
+                    </div>
             </li>
         </ul>
             @endforeach
     </div>
-   
 </div>
 
 <script src="{{url('js/zepto.js')}}" charset="utf-8"></script>
@@ -102,6 +102,25 @@
         )
 
     });
+    $(document).on('click','.moren', function () {
+        var address_id=$(this).next('div').attr('address_id');
+
+        var _token=$("#_token").val();
+        $.post(
+            '{{url('moren')}}',
+            {address_id:address_id,_token:_token},
+            function (res) {
+                // console.log(res);
+                if(res==1){
+                    alert('设置成功');
+
+                }else{
+                    alert('设置失败');
+                }
+                history.go(0);
+            }
+        )
+    })
 
     $(document).on('click','.del',function () {
         var address_id=$(this).attr('address_id');

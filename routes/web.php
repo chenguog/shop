@@ -30,7 +30,7 @@ Route::prefix('/')->group(function(){
     route::post('loginDo','User\UserController@loginDo');
     route::post('code','User\UserController@code');
     route::any('edituser','User\UserController@edituser');
-    route::any('edit','User\UserController@edit');
+    route::any('edit/{id}','User\UserController@edit');
     route::any('buyrecord','User\UserController@buyrecord');
     route::any('mywallet','User\UserController@mywallet');
     route::any('sharedetail','User\UserController@sharedetail');
@@ -63,8 +63,9 @@ Route::prefix('/')->group(function(){
     route::any('writeaddr','AddressController@writeaddr');
     route::any('addressadd','AddressController@addressadd');
     route::any('del','AddressController@del');
-    route::any('edit/{id?}','AddressController@edit');
+    route::any('editaddress/{id?}','AddressController@editaddress');
     route::any('editdo','AddressController@editdo');
+    route::any('moren','AddressController@moren');
 });
 
 Route::prefix('/')->group(function(){
