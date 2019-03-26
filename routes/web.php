@@ -41,6 +41,7 @@ Route::prefix('/')->group(function(){
     route::any('resetpassword','User\UserController@resetpassword');
     route::any('loginpwd','User\UserController@loginpwd');
     route::any('rename','User\UserController@rename');
+    route::any('editpwd','User\UserController@editpwd');
 });
 //路由组goods
 Route::prefix('/')->group(function(){

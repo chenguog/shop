@@ -151,7 +151,7 @@
 					function (res) {
 						if(res==1){
 						    alert('加入购物车成功');
-						    location.href="{{url('shopcart')}}"
+						    location.href="{{url('/')}}"
 						}else if(res==2){
 						    alert('加入购物车失败');
                             location.href="{{url('/')}}"
