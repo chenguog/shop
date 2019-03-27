@@ -8,8 +8,8 @@
     <meta content="yes" name="apple-mobile-web-app-capable" />
     <meta content="black" name="apple-mobile-web-app-status-bar-style" />
     <meta content="telephone=no" name="format-detection" />
-    <link href="css/comm.css" rel="stylesheet" type="text/css" />
-    <link href="css/mywallet.css" rel="stylesheet" type="text/css" />
+    <link href="{{url('css/comm.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{url('css/mywallet.css')}}" rel="stylesheet" type="text/css" />
 </head>
 <body>
     
@@ -57,6 +57,6 @@
         <li class="f_personal"><a href="{{url('userpage')}}"  id="f_personal"><i></i>我的潮购</a></li>
     </ul>
 </div>
-<script src="js/jquery-1.11.2.min.js"></script>
+<script src="{{url('js/jquery-1.11.2.min.js')}}"></script>
 </body>
 </html>

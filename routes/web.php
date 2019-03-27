@@ -58,6 +58,7 @@ Route::prefix('/')->group(function(){
     route::any('payment/{id?}','CartController@payment');
     route::any('pay','CartController@pay');
 });
+
 Route::prefix('/')->group(function(){
     route::any('address','AddressController@address');
     route::any('writeaddr','AddressController@writeaddr');
@@ -71,4 +72,9 @@ Route::prefix('/')->group(function(){
 Route::prefix('/')->group(function(){
     route::any('ordersend','OrderController@ordersend');
     route::any('ordersupply','OrderController@ordersupply');
+});
+Route::prefix('alipay')->group(function(){
+    route::any('mobilepay','AlipayController@mobilepay');
+    route::any('return','AlipayController@re');
+    route::any('notify','AlipayController@notify');
 });
