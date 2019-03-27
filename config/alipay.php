@@ -17,7 +17,7 @@
 
 		//签名方式
 		'sign_type'=>"RSA2",
- 
+
 		//支付宝网关
 		'gatewayUrl' => "https://openapi.alipaydev.com/gateway.do",
 
