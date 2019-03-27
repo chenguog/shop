@@ -20,6 +20,8 @@ Route::prefix('/')->group(function(){
     route::any('allshops','IndexController@allshops');
     route::any('shopcontent/{id?}','IndexController@shopcontent');
     route::any('share','IndexController@share');
+    route::any('search','IndexController@search');
+    route::any('searchdo','IndexController@searchdo');
 });
 //路由组login
 Route::prefix('/')->group(function(){
@@ -48,6 +50,7 @@ Route::prefix('/')->group(function(){
     route::post('cateshop','Goods\GoodsController@cateshop');
     route::get('cateshops/{id?}','Goods\GoodsController@cateshops');
     route::post('sortshop','Goods\GoodsController@sortshop');
+
 
 });
     route::any('verify/create','CaptchaController@create');

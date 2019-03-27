@@ -12,21 +12,21 @@
             <a href="javascript:history.back();" class="m-back-arrow"><i class="m-public-icon"></i></a>
             <a href="/" class="m-index-icon"><i class="m-public-icon"></i></a>
         </div>
-
-        <div class="pro-s-box thin-bor-bottom" id="divSearch">
-            <div class="box">
-                <div class="border">
-                    <div class="border-inner"></div>
+        <a href="{{url('search')}}">
+            <div class="pro-s-box thin-bor-bottom" id="divSearch">
+                <div class="box">
+                    <div class="border">
+                        <div class="border-inner"></div>
+                    </div>
+                    <div class="input-box">
+                        <i class="s-icon"></i>
+                        <input type="text" placeholder="输入“汽车”试试" id="txtSearch" />
+                        <i class="c-icon" id="btnClearInput" style="display: none"></i>
+                    </div>
                 </div>
-                <div class="input-box">
-                    <i class="s-icon"></i>
-                    <input type="text" placeholder="输入“汽车”试试" id="txtSearch" />
-                    <i class="c-icon" id="btnClearInput" style="display: none"></i>
-                </div>
+                <a href="javascript:;" class="s-btn" id="btnSearch">搜索</a>
             </div>
-            <a href="javascript:;" class="s-btn" id="btnSearch">搜索</a>
-        </div>
-
+        </a>
         <!--搜索时显示的模块-->
         <div class="search-info" style="display: none;">
             <div class="hot">

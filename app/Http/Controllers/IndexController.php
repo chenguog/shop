@@ -86,4 +86,17 @@ class IndexController extends Controller
     {
         return view('share');
     }
+
+    public function search()
+    {
+        return view('search');
+    }
+
+    public function searchdo(Request $request)
+    {
+        $getval=$request->getval;
+        $goodsModel=new Goods;
+        $goods_data=$goodsModel::where('goods_name','like',"%$getval%")->get();
+        return view('searchdiv',['goods_data'=>$goods_data]);
+    }
 }
