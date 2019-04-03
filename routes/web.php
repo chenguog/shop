@@ -81,3 +81,7 @@ Route::prefix('alipay')->group(function(){
     route::any('return','AlipayController@re');
     route::any('notify','AlipayController@notify');
 });
+Route::prefix('weixin')->group(function(){
+    route::any('weixin','WeixinController@weixin');
+    route::any('valid','WeixinController@valid');
+});

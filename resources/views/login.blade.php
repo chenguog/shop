@@ -32,8 +32,8 @@
                         <input id="txtPassword" type="password" placeholder="密码" value="" maxlength="20" /><b></b>
                     </dl>
                     <dl>
-                            <input id="verifycode" type="text" placeholder="请输入验证码"  maxlength="4" /><b></b>
-                            <img src="{{url('/verify/create')}}" alt="" id="img">
+                        <input id="verifycode" type="text" placeholder="请输入验证码"  maxlength="4" /><b></b>
+                        <img src="{{url('/verify/create')}}" alt="" id="img">
                     </dl>
                 </li>
             </ul>
@@ -46,7 +46,7 @@
         </div>
     </div>
     <div class="oter_operation gray9" style="display: none;">
-        
+
         <p>登录666潮人购账号后，可在微信进行以下操作：</p>
         1、查看您的潮购记录、获得商品信息、余额等<br />
         2、随时掌握最新晒单、最新揭晓动态信息
